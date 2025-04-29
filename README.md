@@ -1,5 +1,7 @@
 # ShopSphere
-Title: E-commerce Web App - In Progress
+E-commerce Web App - In Progress
+
+
 Description: ShopSphere is a modern e-commerce platform where users can browse products, add them to their cart, and proceed with checkout. The project aims to create a user-friendly interface with responsive design and robust functionality.
 
 Technologies Used:- HTML5, CSS3, JavaScript
