@@ -5,15 +5,21 @@ body {
   margin: 0;
   padding: 0;
   color: #07233b;
+  box-sizing: border-box; /* Ensure padding/margin don't affect layout */
 }
 
+/* Heading Styles */
 h1 {
   text-align: center;
   margin-top: 30px;
   font-size: 2rem;
   color: #01050a; /* Darker color for the heading */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 600;
 }
 
+/* Main Container */
 .container {
   width: 85%;
   max-width: 1200px;
@@ -24,6 +30,8 @@ h1 {
   border-radius: 10px;
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
   animation: fadeSlideIn 0.5s ease-in-out;
+  text-align: center;
+  min-height: 80vh; /* Ensure container always fills enough space */
 }
 
 @keyframes fadeSlideIn {
@@ -37,6 +45,7 @@ h1 {
   }
 }
 
+/* List Styles */
 ul {
   list-style: none;
   padding: 0;
@@ -48,25 +57,76 @@ li {
   padding: 20px;
   border-left: 6px solid #031b2c; /* Updated list item border color */
   border-radius: 6px;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  font-size: 1rem;
 }
 
 li:hover {
   background-color: #760e49; /* Lighter hover color */
+  transform: translateX(5px); /* Slight horizontal shift on hover */
+  color: #fff; /* Text color change on hover */
 }
 
+/* Button Styles */
 button {
   background-color: #050b10; /* Updated button color */
   color: #fff;
-  padding: 10px 18px;
+  padding: 12px 22px;
   border: none;
   border-radius: 6px;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
+  letter-spacing: 1px;
 }
 
 button:hover {
   background-color: #1a0353; /* Updated button hover color */
-  transform: scale(1.03);
+  transform: scale(1.05); /* Slight button scaling effect */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add shadow on hover */
+}
+
+/* Responsive Design for Smaller Screens */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 1.5rem; /* Smaller heading size */
+    margin-top: 20px;
+  }
+
+  .container {
+    width: 95%;
+    padding: 15px;
+  }
+
+  li {
+    font-size: 0.9rem; /* Slightly smaller text on mobile */
+    margin: 10px 0;
+    padding: 15px;
+  }
+
+  button {
+    width: 100%; /* Make button full width on small screens */
+    padding: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.3rem; /* Even smaller heading size */
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  li {
+    font-size: 0.8rem;
+    padding: 10px;
+  }
+
+  button {
+    font-size: 1rem;
+    padding: 12px;
+  }
 }
