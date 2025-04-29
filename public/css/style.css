@@ -1,0 +1,72 @@
+/* public/css/style.css */
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #8b4fb8, #21032c); /* Updated background gradient */
+  margin: 0;
+  padding: 0;
+  color: #07233b;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 30px;
+  font-size: 2rem;
+  color: #01050a; /* Darker color for the heading */
+}
+
+.container {
+  width: 85%;
+  max-width: 1200px;
+  margin: auto;
+  background: #a9da9a;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 10px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08);
+  animation: fadeSlideIn 0.5s ease-in-out;
+}
+
+@keyframes fadeSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  background: #f1f1f1; /* Lighter background for list items */
+  margin: 15px 0;
+  padding: 20px;
+  border-left: 6px solid #031b2c; /* Updated list item border color */
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #760e49; /* Lighter hover color */
+}
+
+button {
+  background-color: #050b10; /* Updated button color */
+  color: #fff;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background-color: #1a0353; /* Updated button hover color */
+  transform: scale(1.03);
+}

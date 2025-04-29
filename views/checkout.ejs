@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Checkout - ShopSphere</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <h1>Checkout</h1>
+
+  <form action="/checkout/confirm" method="POST">
+    <label>Name:</label><br />
+    <input type="text" name="name" required /><br />
+
+    <label>Address:</label><br />
+    <textarea name="address" required></textarea><br />
+
+    <label>Phone:</label><br />
+    <input type="text" name="phone" required /><br /><br />
+
+    <h3>Your Order Summary</h3>
+    <ul>
+      <% cart.forEach(item => { %>
+        <li><%= item.name %> (Qty: <%= item.quantity %>) - ₹<%= item.price * item.quantity %></li>
+      <% }) %>
+    </ul>
+
+    <h3>Total Amount: ₹<%= total %></h3>
+
+    <button type="submit">Proceed to Pay</button>
+  </form>
+</body>
+</html>

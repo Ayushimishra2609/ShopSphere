@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .cart-container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .cart-item-info {
+      flex: 1;
+    }
+
+    .cart-item h3 {
+      margin: 0;
+    }
+
+    .cart-item p {
+      margin: 5px 0;
+    }
+
+    .total {
+      text-align: right;
+      font-size: 1.2rem;
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    .btn-remove {
+      background-color: #dc3545;
+      color: white;
+      padding: 5px 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .btn-remove:hover {
+      background-color: #a30000;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart</h1>
+
+  <div class="cart-container">
+    <% if (cart.length === 0) { %>
+      <p>Your cart is empty!</p>
+    <% } else { %>
+      <% cart.forEach(item => { %>
+        <div class="cart-item">
+          <div class="cart-item-info">
+            <h3><%= item.name %></h3>
+            <p>Price: ₹ <%= item.price %></p>
+            <form action="/cart/update" method="POST" style="display:inline-block;">
+              <input type="hidden" name="name" value="<%= item.name %>" />
+              <input type="hidden" name="action" value="decrease" />
+              <button type="submit">➖</button>
+            </form>
+            
+            <span style="margin: 0 10px;"><%= item.quantity %></span>
+            
+            <form action="/cart/update" method="POST" style="display:inline-block;">
+              <input type="hidden" name="name" value="<%= item.name %>" />
+              <input type="hidden" name="action" value="increase" />
+              <button type="submit">➕</button>
+            </form>
+            
+          </div>
+          <form action="/cart/remove" method="POST">
+            <input type="hidden" name="name" value="<%= item.name %>" />
+            <button class="btn-remove" type="submit">Remove</button>
+          </form>
+        </div>
+      <% }) %>
+
+      <p class="total">Total: ₹ <%= total %></p>
+    <% } %>
+  </div>
+
+</body>
+</html>
