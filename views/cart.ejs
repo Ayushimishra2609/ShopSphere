@@ -48,14 +48,40 @@
     .btn-remove {
       background-color: #dc3545;
       color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .btn-remove:hover {
+      background-color: #a30000;
+    }
+
+    button[type="submit"] {
+      background-color: #007bff;
+      color: white;
       padding: 5px 10px;
       border: none;
       border-radius: 5px;
       cursor: pointer;
     }
 
-    .btn-remove:hover {
-      background-color: #a30000;
+    button[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+
+    .btn-proceed {
+      padding: 10px 20px;
+      background-color: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+    }
+
+    .btn-proceed:hover {
+      background-color: #218838;
     }
   </style>
 </head>
@@ -65,7 +91,7 @@
 
   <div class="cart-container">
     <% if (cart.length === 0) { %>
-      <p>Your cart is empty!</p>
+      <p>Your cart is empty! <a href="/products">Browse Products</a></p>
     <% } else { %>
       <% cart.forEach(item => { %>
         <div class="cart-item">
@@ -95,6 +121,9 @@
       <% }) %>
 
       <p class="total">Total: ₹ <%= total %></p>
+      <div style="text-align: center; margin-top: 20px;">
+        <a href="/checkout" class="btn-proceed">Proceed to Checkout</a>
+      </div>
     <% } %>
   </div>
 

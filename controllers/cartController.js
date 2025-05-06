@@ -42,10 +42,24 @@ const updateQuantity = (req, res) => {
   res.redirect("/cart");
 };
 
+// ✅ Show Checkout Page
+const showCheckout = (req, res) => {
+  const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  res.render("checkout", { cart, total });
+};
+
+// ✅ Confirm Order (optional)
+const confirmOrder = (req, res) => {
+  const { name, address, phone } = req.body;
+  res.render("thankyou", { name, address, phone });
+};
+
 module.exports = {
   addToCart,
   getCart,
   removeFromCart,
   updateQuantity,
+  showCheckout, // Export showCheckout function
+  confirmOrder, // Export confirmOrder function
   cart // ✅ export shared cart for checkout
 };

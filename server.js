@@ -3,6 +3,7 @@ console.log('MONGO_URI:', process.env.MONGO_URI);
 const express = require('express');
 const mongoose = require('mongoose');
 const path = require('path');
+const cartController = require('./controllers/cartController'); // Correct import
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartroutes');
@@ -29,6 +30,12 @@ app.use('/cart', cartRoutes);
 app.get('/', (req, res) => {
   res.render('index', { title: 'Welcome to ShopSphere!' });
 });
+
+// Checkout Route: Show Cart and Checkout Page
+app.get('/checkout', cartController.showCheckout); // Checkout page dikhana
+
+// Checkout Confirmation Route: Confirm Order
+app.post('/checkout', cartController.confirmOrder); // Order confirm karna
 
 // MongoDB Connection
 const connectDB = async () => {
