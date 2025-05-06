@@ -6,7 +6,7 @@ const path = require('path');
 const authRoutes = require('./routes/auth');
 const productRoutes = require('./routes/productRoutes');
 const cartRoutes = require('./routes/cartroutes');
-
+const bcrypt = require("bcrypt");
 const app = express();
 
 // Middleware

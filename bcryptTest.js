@@ -1,4 +1,4 @@
-const bcrypt = require('bcryptjs');
+const bcrypt = require("bcrypt");
 
 const password = '1234!@#$';  // Example entered password
 const storedHash = '$2b$10$IZSxxj0vCn3yguZncngW0OxaG9TfJBoslGkNmBX7qWOZGs..SOmtO';  // Example stored hash
